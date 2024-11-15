@@ -1,0 +1,13 @@
+.dashboard {
+  text-align: center;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard h1 {
+  color: #333;
+}
+
+.dashboard p {
+  color: #666;
+}

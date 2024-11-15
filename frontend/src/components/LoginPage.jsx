@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './RegisterPage.css';
 
@@ -6,6 +7,7 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -15,6 +17,9 @@ function LoginPage() {
         password,
       });
       setMessage(response.data.message);
+      if (response.data.message === 'Login successful') {
+        navigate('/dashboard');
+      }
     } catch (error) {
       setMessage(
         error.response?.data?.message || 'An error occurred. Please try again.'
