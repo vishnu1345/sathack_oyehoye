@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './RegisterPage.css';
+// import Navbar from './Navbar';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -28,6 +29,8 @@ function LoginPage() {
   };
 
   return (
+    <>
+    {/* <Navbar></Navbar> */}
     <div className="main">
       <div className="register-page">
         <div className="form-container">
@@ -71,6 +74,7 @@ function LoginPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
