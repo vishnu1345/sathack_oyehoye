@@ -3,9 +3,10 @@ const app = express();
 const cors = require("cors");
 const port = 3000;
 const bcrypt = require('bcrypt');
-const multer = require('multer');
+// const multer = require('multer');
 const path = require('path');
-const { User } = require('./mongo.js');
+const { User , Submission} = require('./mongo.js');
+
 
 app.use(express.json());
 
@@ -80,18 +81,18 @@ app.listen(port, () => {
 });
 
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/');
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, 'uploads/');
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, Date.now() + '-' + file.originalname);
+//   },
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
-app.post('/ngo', upload.array('files'), async (req, res) => {
+app.post('/ngo', async (req, res) => {
   try {
     const {
       numberOfTrees,
@@ -102,7 +103,7 @@ app.post('/ngo', upload.array('files'), async (req, res) => {
       rainfall,
     } = req.body;
 
-    const filePaths = req.files.map((file) => file.path);
+    // const filePaths = req.files.map((file) => file.path);
 
     const newSubmission = new Submission({
       numberOfTrees,
@@ -111,7 +112,7 @@ app.post('/ngo', upload.array('files'), async (req, res) => {
       soilType,
       elevation,
       rainfall,
-      files: filePaths,
+      // files: filePaths,
     });
 
     await newSubmission.save();

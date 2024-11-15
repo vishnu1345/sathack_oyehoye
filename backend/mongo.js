@@ -31,7 +31,7 @@ const submissionSchema = new mongoose.Schema({
   soilType: String,
   elevation: Number,
   rainfall: Number,
-  files: [String], 
+  // files: [String], 
 });
 
 const User = mongoose.model('User', userSchema);
