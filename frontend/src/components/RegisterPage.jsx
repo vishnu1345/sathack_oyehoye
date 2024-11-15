@@ -9,6 +9,9 @@ function RegisterPage() {
   };
 
   return (
+    <div className="main">
+
+   
     <div className="register-page">
       <div className="form-container">
         <h1>REGISTER</h1>
@@ -57,6 +60,7 @@ function RegisterPage() {
           </a>
         </p>
       </div>
+    </div>
     </div>
   );
 }

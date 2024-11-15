@@ -9,6 +9,7 @@ function LoginPage() {
   };
 
   return (
+    <div className="main">
     <div className="register-page">
       <div className="form-container">
         <h1>LOGIN</h1>
@@ -46,6 +47,7 @@ function LoginPage() {
           </a>
         </p>
       </div>
+    </div>
     </div>
   );
 }
