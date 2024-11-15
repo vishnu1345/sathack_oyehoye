@@ -1,53 +1,70 @@
 import React, { useState } from 'react';
-import './RegisterPage.css'; 
+import axios from 'axios';
+import './RegisterPage.css';
 
 function LoginPage() {
-  const [userType, setUserType] = useState('Company'); 
-  const handleRegister = (e) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    alert(`Registering as: ${userType}`);
+    try {
+      const response = await axios.post('http://localhost:3000/login', {
+        email,
+        password,
+      });
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage(
+        error.response?.data?.message || 'An error occurred. Please try again.'
+      );
+    }
   };
 
   return (
     <div className="main">
-    <div className="register-page">
-      <div className="form-container">
-        <h1>LOGIN</h1>
-        <form onSubmit={handleRegister}>
-          
+      <div className="register-page">
+        <div className="form-container">
+          <h1>LOGIN</h1>
+          <form onSubmit={handleLogin}>
+            <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
+            <div className="form-group">
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              required
-            />
-          </div>
-
-          <button type="submit" className="register-btn">
-            Login
-          </button>
-        </form>
-        <p>
-          Don't have an account?{' '}
-          <a href="/" className="register-link">
-            Register
-          </a>
-        </p>
+            <button type="submit" className="register-btn">
+              Login
+            </button>
+          </form>
+          {message && <p className="message">{message}</p>}
+          <p>
+            Don't have an account?{' '}
+            <a href="/" className="register-link">
+              Register
+            </a>
+          </p>
+        </div>
       </div>
-    </div>
     </div>
   );
 }

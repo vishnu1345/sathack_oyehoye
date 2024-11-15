@@ -1,11 +1,21 @@
 const express = require('express');
 const app = express();
+const cors = require("cors");
 const port = 3000;
 const bcrypt = require('bcrypt');
 const { User } = require('./mongo.js');
 
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET','POST'],
+    credentials: true,
+  })
+);
+
+app.options('*', cors());
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
