@@ -1,0 +1,21 @@
+.nav{
+    width: 100vw;
+    height: 10vh;
+    background-color: color(srgb 0.2359 0.1823 0.239);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.logo{
+    margin: 10px;
+}
+
+.profile{
+    height: 6vh;
+    width: 6vh;
+    border-radius: 50%;
+    background-color: yellow;
+    margin: 20px;
+}

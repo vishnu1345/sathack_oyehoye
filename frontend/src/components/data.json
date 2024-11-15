@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Event One",
+    "description": "Description for event one goes here.",
+    "backgroundColor": "#ff6347"
+  },
+  {
+    "id": 2,
+    "title": "Event Two",
+    "description": "Description for event two goes here.",
+    "backgroundColor": "#4caf50"
+  },
+  {
+    "id": 3,
+    "title": "Event Three",
+    "description": "Description for event three goes here.",
+    "backgroundColor": "#1e90ff"
+  },
+  {
+    "id": 4,
+    "title": "Event Four",
+    "description": "Description for event four goes here.",
+    "backgroundColor": "#f39c12"
+  },
+  {
+    "id": 5,
+    "title": "Event Five",
+    "description": "Description for event five goes here.",
+    "backgroundColor": "#9b59b6"
+  },
+  {
+    "id": 6,
+    "title": "Event Six",
+    "description": "Description for event six goes here.",
+    "backgroundColor": "#e74c3c"
+  }
+]
