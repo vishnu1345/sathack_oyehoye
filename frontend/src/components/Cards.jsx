@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Cards.module.css";
 import Content from "./data.json";
+import Navbar from "./Navbar";
 
 export default function Tracks() {
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -32,11 +33,14 @@ export default function Tracks() {
   };
 
   return (
-    <div className={styles.main}>
-      <h1 className={styles.mainheading}>Tracks</h1>
-      <div className={styles.container}>
-        {Content.map((event, index) => generateEventDiv(event, index))}
+    <>
+      <Navbar />
+      <div className={styles.main}>
+        <h1 className={styles.mainheading}>Tracks</h1>
+        <div className={styles.container}>
+          {Content.map((event, index) => generateEventDiv(event, index))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
