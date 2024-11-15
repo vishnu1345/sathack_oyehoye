@@ -24,10 +24,18 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const ngoSchema = new mongoose.Schema({
-  
-})
+const submissionSchema = new mongoose.Schema({
+  numberOfTrees: Number,
+  treeSpecies: String,
+  tempCompatibility: Number,
+  soilType: String,
+  elevation: Number,
+  rainfall: Number,
+  files: [String], 
+});
 
 const User = mongoose.model('User', userSchema);
+const Submission = mongoose.model('Submission', submissionSchema);
 
-module.exports = { User };
+
+module.exports = { User , Submission};
