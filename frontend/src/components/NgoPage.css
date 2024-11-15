@@ -1,0 +1,107 @@
+.main {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .ngo-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .form-container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem;
+    width: 600px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  }
+  
+  h1 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .two-column-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 15px; /* Space between items */
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #fff;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #64748b;
+    border-radius: 5px;
+    background: #0f172a;
+    color: #fff;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+  
+  input::placeholder {
+    color: #94a3b8;
+  }
+  
+  button.submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button.submit-btn:hover {
+    background: #1d4ed8;
+  }
+  
+  .form-group.full-width {
+    grid-column: span 2; /* Elements span across two columns */
+  }
+  
+  .message {
+    text-align: center;
+    margin-top: 10px;
+    color: #28a745;
+  }
+  
+  .register-link {
+    color: #0f172a;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .register-link:hover {
+    color: #1d4ed8;
+  }
+  

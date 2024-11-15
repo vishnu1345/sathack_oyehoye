@@ -3,6 +3,8 @@ const app = express();
 const cors = require("cors");
 const port = 3000;
 const bcrypt = require('bcrypt');
+const multer = require('multer');
+const path = require('path');
 const { User } = require('./mongo.js');
 
 app.use(express.json());
@@ -14,6 +16,7 @@ app.use(
     credentials: true,
   })
 );
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.options('*', cors());
 app.get('/', (req, res) => {
@@ -74,4 +77,48 @@ app.post('/login', async (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+});
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.post('/ngo', upload.array('files'), async (req, res) => {
+  try {
+    const {
+      numberOfTrees,
+      treeSpecies,
+      tempCompatibility,
+      soilType,
+      elevation,
+      rainfall,
+    } = req.body;
+
+    const filePaths = req.files.map((file) => file.path);
+
+    const newSubmission = new Submission({
+      numberOfTrees,
+      treeSpecies,
+      tempCompatibility,
+      soilType,
+      elevation,
+      rainfall,
+      files: filePaths,
+    });
+
+    await newSubmission.save();
+
+    res.status(201).json({ message: 'Submission saved successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'An error occurred while saving data' });
+  }
 });
